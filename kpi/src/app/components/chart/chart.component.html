@@ -1,0 +1,6 @@
+<div *ngIf="isChart; else table">
+    <canvas #canvas id="canvas" class="chart-legend" legendPadding="10px"></canvas>
+  </div>
+  <ng-template #table>
+    Show Table
+  </ng-template>
