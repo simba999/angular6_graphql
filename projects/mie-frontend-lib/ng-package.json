@@ -1,0 +1,19 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/mie-frontend-lib",
+  "deleteDestPath": false,
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "externals": {
+      "chart.js": "chart.js",
+      "chart.piecelabel.js": "chart.piecelabel.js",
+      "chartjs-plugin-piechart-outlabels": "chartjs-plugin-piechart-outlabels",
+      "lodash": "lodash",
+      "lodash-decorators": "lodash-decorators",
+      "moment": "moment",
+      "ng2-charts": "ng2-charts",
+      "rxjs": "rxjs",
+      "rxjs-compat": "rxjs-compat"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+
++++ node_modules/ng2-charts/charts/charts.js	
+@@ -38,6 +38,9 @@
+                 else {
+                     this.updateChartData(changes['datasets'].currentValue);
+                 }
++                if (changes['labels']) {
++                  this.updateChartLabels(changes['labels'].currentValue);
++                }
+                 this.chart.update();
+             }
+             else {
+@@ -46,6 +49,9 @@
+             }
+         }
+     };
++    BaseChartDirective.prototype.updateChartLabels = function (newLabelsValues) {
++      this.chart.data.labels = newLabelsValues;
++    };
+     BaseChartDirective.prototype.ngOnDestroy = function () {
+         if (this.chart) {
+             this.chart.destroy();
