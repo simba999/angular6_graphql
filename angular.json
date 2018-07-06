@@ -24,7 +24,8 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/scss/*.scss"
             ],
             "scripts": []
           },
@@ -74,7 +75,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "styles.css"
+              "styles.css",
+              "src/assets/scss/*.scss"
             ],
             "scripts": [],
             "assets": [
@@ -152,6 +154,46 @@
             "tsConfig": [
               "projects/mie-frontend-lib/tsconfig.lib.json",
               "projects/mie-frontend-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "mie-frontend-custom": {
+      "root": "projects/mie-frontend-custom",
+      "sourceRoot": "projects/mie-frontend-custom/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mie-frontend-custom/tsconfig.lib.json",
+            "project": "projects/mie-frontend-custom/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/mie-frontend-custom/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mie-frontend-custom/src/test.ts",
+            "tsConfig": "projects/mie-frontend-custom/tsconfig.spec.json",
+            "karmaConfig": "projects/mie-frontend-custom/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mie-frontend-custom/tsconfig.lib.json",
+              "projects/mie-frontend-custom/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

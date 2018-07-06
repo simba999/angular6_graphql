@@ -11,7 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 // import library modules with in project
 import { MieFrontendLibModule } from 'mie-frontend-lib';
-
+import { MieFrontendCustomModule } from 'mie-frontend-custom';
 // Material Modules
 import {
   MatFormFieldModule,
@@ -108,6 +108,7 @@ import { environment } from '../environments/environment';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     AdvisoryRoutingModule,
     MieFrontendLibModule,
+    MieFrontendCustomModule
   ],
   providers: [
   ],

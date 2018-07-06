@@ -32,6 +32,12 @@
       ],
       "mie-frontend-lib/*": [
         "dist/mie-frontend-lib/*"
+      ],
+      "mie-frontend-custom": [
+        "dist/mie-frontend-custom"
+      ],
+      "mie-frontend-custom/*": [
+        "dist/mie-frontend-custom/*"
       ]
     }
   }
