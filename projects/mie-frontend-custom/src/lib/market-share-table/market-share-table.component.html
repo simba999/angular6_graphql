@@ -1,0 +1,41 @@
+<div id="table-scroll" class="table-scroll">
+  <mat-icon class="ml_10 down_pdf" (click)="download()">save_alt</mat-icon>
+  <mat-icon class="ml_10 pop" (click)="openPopup()">home</mat-icon>
+  <!-- <mat-icon class="ml_10" (click)="download()">save_alt</mat-icon> -->
+  <div class="rightTab" #leftTablePanel id="leftTablePanel">
+    <table mat-table [dataSource]="dataSource" class="left-tab">
+      <ng-container matColumnDef="name" sticky>
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedFirstColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedFirstColumns;"></tr>
+    </table>
+
+    <span class="glyphicon glyphicon-chevron-left left-arrow custm-left-arrow" (click)="onPreviousSearchPosition()"></span>
+
+    <div #tablePanel class="table-panel">
+      <table mat-table [dataSource]="dataSource" class="right-tab">
+        <div #panel id="panel" class="panel">
+          <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+            <th mat-header-cell *matHeaderCellDef> {{disCol}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+          </ng-container>
+        </div>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <span class="glyphicon glyphicon-chevron-right right-arrow" (click)="onNextSearchPosition()"></span>
+  </div>
+
+  <div class="marketShare">
+    <span>Are we increasing our market share over time?</span>
+    <span class="goodPercent">GOOD (+3%)</span>
+    <span class="detailsSec">Details</span>
+    <mat-icon>chevron_right</mat-icon>
+  </div>
+</div>
+

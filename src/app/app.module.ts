@@ -10,8 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 // import library modules with in project
-import { MieFrontendLibModule } from 'mie-frontend-lib';
-import { MieFrontendCustomModule } from 'mie-frontend-custom';
+import { MieFrontendLibModule } from 'projects/mie-frontend-lib/src/lib/mie-frontend-lib.module';
+import { MieFrontendCustomModule } from 'projects/mie-frontend-custom/src/lib/mie-frontend-custom.module';
 // Material Modules
 import {
   MatFormFieldModule,
@@ -37,7 +37,8 @@ import {
   MatTooltipModule,
   DateAdapter,
   MAT_DATE_FORMATS,
-  MatSelect
+  MatSelect,
+  MatGridListModule
 } from '@angular/material';
 
 
@@ -108,7 +109,8 @@ import { environment } from '../environments/environment';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     AdvisoryRoutingModule,
     MieFrontendLibModule,
-    MieFrontendCustomModule
+    MieFrontendCustomModule,
+    MatGridListModule
   ],
   providers: [
   ],

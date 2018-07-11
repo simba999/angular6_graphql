@@ -1,0 +1,96 @@
+.mt_10 {
+  margin-bottom: 10px;
+}
+
+.detailsSec {
+  margin-left: 150px;
+  color: lightseagreen;
+  font-weight: bold;
+}
+
+.goodPercent {
+  cursor: pointer;
+  color: green;
+  margin-left: 20px;
+  font-style: normal;
+}
+
+.marketShare {
+  font-size: 13px;
+  font-style: italic;
+  display: inline-flex;
+  position: absolute;
+  bottom: 0px;
+  height: 50px;
+  left: 30px;
+  right: 0px;
+  top: 295px;
+  width: 90%;
+}
+
+.down_pdf{
+  margin-top: -57px;
+  position: absolute;
+  margin-left: 560px;
+}
+
+td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell,
+td.mat-cell:first-child,
+td.mat-footer-cell:first-child,
+th.mat-header-cell:first-child,
+td.mat-cell:last-child,
+td.mat-footer-cell:last-child,
+th.mat-header-cell:last-child {
+  padding: 5px 10px 5px 15px;
+}
+
+.rightTab {
+  width: 455px;
+  display: -webkit-box;
+}
+
+.custm-left-arrow {
+  margin-right: -14px;
+}
+
+tr.mat-footer-row,
+tr.mat-row {
+  height: 23px;
+}
+
+tr.mat-header-row {
+  height: 22px;
+}
+
+tr.mat-footer-row[_ngcontent-c12],
+tr.mat-row[_ngcontent-c12] {
+  text-align: left;
+}
+
+.left-tab {
+  width: 165px;
+  overflow: hidden;
+}
+
+.right-tab {
+  width: 400px;
+  overflow: hidden;
+  background-color: #fdf5e6;
+}
+
+.table-panel {
+  /* background-color: #fffb9d; */
+  width: 380px;
+  overflow: hidden;
+
+}
+
+.panel {
+  width: 455px;
+  overflow: hidden
+}
+
+
+

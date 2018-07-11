@@ -1,0 +1,59 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.systemName{
+  position: absolute;
+  top: 15px;
+  right: 55px;
+  display: inline-flex;
+}
+
+.ml_10{
+  margin-left: 20px;
+  /* padding-top: 5px; */
+}
+
+.crop-ion{
+  margin-right: 40px;
+}
+
+.sorceName{
+  font-style: italic;
+  padding-top: 5px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: left;
+}
+
+.horiz-bar {
+  overflow: hidden;
+  // overflow-y: scroll;
+  height: 200px;
+}
+
+mat-card-header {
+  padding:0;
+}
+
+mat-card-title {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  // margin-top: 0;
+}

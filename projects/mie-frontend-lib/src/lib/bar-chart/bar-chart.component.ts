@@ -12,6 +12,7 @@ export class BarChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('check chartvm values', this.chartvm);
   }
 
 }

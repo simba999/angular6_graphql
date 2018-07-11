@@ -1,3 +1,62 @@
-<mie-lib-doughnut-chart
+<!-- <mie-lib-doughnut-chart
   [chartvm]="chartvm">
-</mie-lib-doughnut-chart>
+</mie-lib-doughnut-chart> -->
+
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header class="mat-card-header">
+          <mat-card-title>
+            {{card.title}}
+            <div class="systemName">
+              <span class="sorceName">Source: {{card.sourceName}}</span>
+              <mat-icon class="ml_10 crop-ion" (click)="showTooltip()">crop_din</mat-icon>
+              <!-- <app-download [chartType]=card.chartType [cardid]=card.id></app-download> -->
+              <!-- <mat-icon class="ml_10" (click)="downloadFile()">save_alt</mat-icon> -->
+              <!-- <mat-icon class="ml_10">more_horiz</mat-icon> -->
+
+            </div>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="downloadPNG()">
+                <mat-icon>image</mat-icon>
+                PNG
+              </button>
+              <button mat-menu-item (click)="downloadPDF()">
+                <mat-icon>picture_as_pdf</mat-icon>
+                PDF
+              </button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="horiz-bar">
+            <div *ngIf="card.id == 1">
+              <!-- <mie-advisory-page></mie-advisory-page> -->
+            </div>
+            <div *ngIf="card.id == 2">
+              <!-- <mie-advisory-page></mie-advisory-page> -->
+            </div>
+            <div *ngIf="card.id == 3">
+              <mie-lib-bar-chart [chartvm]="barChartdata"></mie-lib-bar-chart>
+            </div>
+            <div *ngIf="card.id == 4" id="content" #content>
+              <mie-lib-market-share-table></mie-lib-market-share-table>
+            </div>
+            <div *ngIf="card.id == 5">
+              <!-- <mie-advisory-page></mie-advisory-page> -->
+            </div>
+            <div *ngIf="card.id == 6">
+              <!-- <mie-advisory-page></mie-advisory-page> -->
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
