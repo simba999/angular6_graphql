@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
 import { ModalComponent } from './../modal/modal.component';
 import * as jsPDF from 'jspdf';
 // const jsPDF = require('jspdf');
@@ -53,7 +54,7 @@ export class MarketShareTableComponent implements OnInit {
   dataSource = this.ELEMENT_DATA;
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public router: Router) {
     this.ELEMENT_DATA.forEach((item) => {
       this.displayedColumns.push(item.year);
     });
@@ -61,6 +62,10 @@ export class MarketShareTableComponent implements OnInit {
 
   ngOnInit() {
     console.log(JSON.stringify(this.ELEMENT_DATA));
+  }
+
+  directToDetails() {
+    this.router.navigate(['/details'], {queryParams: {tabData: this.ELEMENT_DATA}});
   }
 
   public onPreviousSearchPosition(): void {
@@ -99,10 +104,10 @@ export class MarketShareTableComponent implements OnInit {
     doc.save('test.pdf');
   }
 
-  openPopup(): void {
+  openPopup(type): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '1900px',
-      data: 'passing string from table header'
+      data: type
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('dialog got closed');

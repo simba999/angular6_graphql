@@ -1,17 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { AdvisoryService } from '../../api/advisory.service';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
-import { ModalComponent } from 'projects/mie-frontend-custom/src/lib/modal/modal.component';
-import * as jsPDF from 'jspdf';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-selector: 'mie-advisory-page',
-templateUrl: './advisory-page.component.html',
-styleUrls: ['./advisory-page.component.scss']
+  selector: 'mie-lib-advisory-cards',
+  templateUrl: './advisory-cards.component.html',
+  styleUrls: ['./advisory-cards.component.scss']
 })
-export class AdvisoryPageComponent {
+export class AdvisoryCardsComponent implements OnInit {
 
-  @ViewChild('content') content: ElementRef;
+  // @ViewChild('content') content: ElementRef;
   public title = 'hello cards';
   cards = [
     { id: 1, title: 'Average Revenue', sourceName: 'System Name', cols: 1, rows: 1 },
@@ -44,12 +40,8 @@ export class AdvisoryPageComponent {
           }
         }]
       },
-      'hover': {
-        'animationDuration': 0
-      },
-      tooltips: {
-        'enabled': false
-      },
+      'hover': { 'animationDuration': 0 },
+      tooltips: { 'enabled': false },
       'animation': {
         'duration': 1,
         'onComplete': function () {
@@ -68,22 +60,13 @@ export class AdvisoryPageComponent {
     chartLabels: ['CBRE', 'JLL', 'BNP Paribas', 'Colliers', 'Cushman & Wakefield',
       'Eastdil Secured', 'HFF', 'Knight frank', 'Marcus & Millichap', 'Savills', 'Other'],
     chartType: 'horizontalBar',
-    chartData: [20.4, 7.4, 6.7, 0.8, 3.8, 6.2, 7.4, 3.6, 0.8, 8.9, 6.8],
-    chartLegend: true,
-    chartColors: [{ backgroundColor: '#989898' }],
+    chartData: [20.4, 7.4, 6.7, 0.8, 3.8, 6.2, 7.4, 3.6, 0.8, 8.9, 6.8]
   };
 
-  constructor(public dialog: MatDialog) {
+
+  constructor() { }
+
+  ngOnInit() {
   }
 
-  openPopup(type): void {
-    const dialogRef = this.dialog.open(ModalComponent, {
-      width: '2500px',
-      data: type
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('dialog got closed');
-    });
-
-  }
 }

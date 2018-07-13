@@ -1,8 +1,10 @@
-<div style="width: 150%;height:150%;display: block" *ngIf="chartvm">
+<div style="width: 50%;height:50%;display: block" *ngIf="chartvm">
 	<canvas baseChart 
     [chartType]="chartvm.chartType"
     [data]="chartvm.chartData"
     [labels]="chartvm.chartLabels"
-    [options]="chartvm.chartOptions">
+    [options]="chartvm.chartOptions"
+    [legend]="chartvm.chartLegend"
+    [colors]="chartvm.chartColors">
   </canvas>
 </div>

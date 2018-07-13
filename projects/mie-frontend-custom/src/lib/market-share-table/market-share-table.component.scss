@@ -1,3 +1,7 @@
+@import '../../../../../src/assets/scss/_variables.scss';
+@import '../../../../../src/assets/scss/_mixins.scss';
+
+
 .mt_10 {
   margin-bottom: 10px;
 }
@@ -5,7 +9,8 @@
 .detailsSec {
   margin-left: 150px;
   color: lightseagreen;
-  font-weight: bold;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .goodPercent {
@@ -49,6 +54,7 @@ th.mat-header-cell:last-child {
 .rightTab {
   width: 455px;
   display: -webkit-box;
+  font-family: "Futura Book",Helvetica,Arial,sans-serif;
 }
 
 .custm-left-arrow {
@@ -75,9 +81,10 @@ tr.mat-row[_ngcontent-c12] {
 }
 
 .right-tab {
-  width: 400px;
+  width: 800px;
   overflow: hidden;
-  background-color: #fdf5e6;
+  background-color: #f2f2f2;
+  font-family: "Futura Book",Helvetica,Arial,sans-serif;
 }
 
 .table-panel {

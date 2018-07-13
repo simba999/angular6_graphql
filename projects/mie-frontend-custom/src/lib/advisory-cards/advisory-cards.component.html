@@ -41,10 +41,8 @@
             <div *ngIf="card.id == 2">
               <!-- <mie-advisory-page></mie-advisory-page> -->
             </div>
-            <div *ngIf="card.id == 3" style="height:2000px; width:2000px">
-              <!-- <mat-icon class="ml_10 pop" (click)="openPopup('barChart')">home</mat-icon> -->
-              <a class="detailsSec" (click)="openPopup('barChart')">View Details</a>
-              <mie-lib-bar-chart [chartvm]="barChartdata"></mie-lib-bar-chart>
+            <div *ngIf="card.id == 3">
+              <!-- <mie-lib-bar-chart [chartvm]="barChartdata"></mie-lib-bar-chart> -->
             </div>
             <div *ngIf="card.id == 4" id="content" #content>
               <mie-lib-market-share-table></mie-lib-market-share-table>
@@ -61,4 +59,3 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-
