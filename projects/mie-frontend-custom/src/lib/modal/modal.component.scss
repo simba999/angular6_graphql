@@ -1,41 +1,263 @@
-table{
-margin-bottom: 10px;
-margin-top: 10px;
-  width:2000px; 
-  height: 1000px;
-  padding: 10px;
-  background-color:#f2f2f2;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-.chartjs-render-monitor{
-    width: 1040px !important;
-}
-.cdk-global-overlay-wrapper .cdk-overlay-pane{
-    width: 800px !important;
-}
-.head-section{
-    display: inline-flex;
-}
-.clear-btn{
-    margin-left: 63vw;
-}
-.cdk-global-overlay-wrapper  .cdk-overlay-pane{
-    max-width: 95vw !important;
-}
-.pop{
-    display: none !important; 
+@import "../../../../../src/assets/scss/_variables.scss";
+@import "../../../../../src/assets/scss/_mixins.scss";
+
+.options-bar {
+  display: flex;
+  padding: 0 20px;
+  background-color: lighten($black, 96%);
+  border-top: 1px solid $border-default;
+  border-bottom: 1px solid $border-default;
+  &__views {
+    padding: 7px 15px;
+    border-left: 1px solid $border-default;
+    box-shadow: inset 1px 0 $white;
+    mat-icon {
+      color: lighten($black, 80%);
+    }
+    span {
+      display: inline-block;
+      margin-left: 7px;
+      font-family: $font-default-bold;
+      font-size: 1.4rem;
+      color: $text-default;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+    margin-left: auto;
+    border-left: 1px solid $border-default;
+    box-shadow: inset 1px 0 $white;
+    ::ng-deep .mat-form-field {
+      padding: 11px 10px 0 15px;
+      .mat-form-field-infix {
+        width: auto;
+        .mat-select {
+          margin: 0;
+          font-family: $font-default-bold;
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          .mat-select-trigger {
+            .mat-select-value {
+              display: inline;
+            }
+            .mat-select-arrow-wrapper {
+              // display: inline-block;
+              margin-left: 10px;
+              .mat-select-arrow {
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid lighten($black, 80%);
+              }
+            }
+          }
+        }
+      }
+
+      .mat-form-field-wrapper {
+        padding: 0;
+        .mat-form-field-flex {
+          .mat-form-field-infix {
+            padding: 0;
+            border: none;
+          }
+        }
+        .mat-form-field-underline {
+          display: none;
+        }
+      }
+    }
+  }
+  &__items {
+    padding: 7px 15px;
+    border-left: 1px solid $border-default;
+    box-shadow: inset 1px 0 $white;
+    mat-icon {
+      color: lighten($black, 80%);
+    }
+    span {
+      display: inline-block;
+      margin-left: 7px;
+      font-family: $font-default-bold;
+      font-size: 1.4rem;
+      color: $text-default;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+  }
 }
 
-.table-panel{
-    width: auto !important;
+canvas {
+  max-width: 1200px;
+  height: auto !important;
 }
 
-.mat-dialog-content {
-    display: block;
-    margin: 0 -24px;
-    padding: 0 24px;
-    height: 500vh;
-    width: 145vh;
-    overflow: auto;
+// table{
+// margin-bottom: 10px;
+// margin-top: 10px;
+//   width:2000px; 
+//   height: 1000px;
+//   padding: 10px;
+//   background-color:#f2f2f2;
+//   font-size: 1.3rem;
+//   font-weight: 600;
+// }
+// .chartjs-render-monitor{
+//     width: 1040px !important;
+// }
+// .cdk-global-overlay-wrapper .cdk-overlay-pane{
+//     width: 800px !important;
+// }
+// .head-section{
+//     display: inline-flex;
+// }
+// .clear-btn{
+//     margin-left: 63vw;
+// }
+// .cdk-global-overlay-wrapper  .cdk-overlay-pane{
+//     max-width: 95vw !important;
+// }
+// .pop{
+//     display: none !important; 
+// }
+
+// .table-panel{
+//     width: auto !important;
+// }
+
+// .mat-dialog-content {
+//     width: 1700px;
+//     width: 1994px;
+//     overflow: none;
+//     max-height: none;
+//     max-width: none;
+// }
+// :host >>> .table-panel{
+//     width: auto;
+// }
+
+// .cdk-overlay-pane {
+//     max-width: none !important;
+// }
+.mat-dialog-content{
+    max-height: none;
+}
+
+.mt_10 {
+  margin-bottom: 10px;
+}
+
+.detailsSec {
+  margin-left: 150px;
+  color: lightseagreen;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.goodPercent {
+  cursor: pointer;
+  color: green;
+  margin-left: 20px;
+  font-style: normal;
+}
+
+.marketShare {
+  font-size: 13px;
+  font-style: italic;
+  display: inline-flex;
+  position: absolute;
+  bottom: 0px;
+  height: 50px;
+  left: 30px;
+  right: 0px;
+  top: 295px;
+  width: 90%;
+}
+
+.down_pdf{
+  margin-top: -57px;
+  position: absolute;
+  margin-left: 560px;
+}
+
+td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell,
+td.mat-cell:first-child,
+td.mat-footer-cell:first-child,
+th.mat-header-cell:first-child,
+td.mat-cell:last-child,
+td.mat-footer-cell:last-child,
+th.mat-header-cell:last-child {
+  padding: 5px 10px 5px 15px;
+}
+
+.rightTab {
+  width: 455px;
+  display: -webkit-box;
+  font-family: "Futura Book",Helvetica,Arial,sans-serif;
+}
+
+.custm-left-arrow {
+  margin-right: -14px;
+}
+
+tr.mat-footer-row,
+tr.mat-row {
+  height: 23px;
+}
+
+tr.mat-header-row {
+  height: 22px;
+}
+
+tr.mat-footer-row[_ngcontent-c12],
+tr.mat-row[_ngcontent-c12] {
+  text-align: left;
+}
+
+.left-tab {
+  width: 165px;
+  overflow: hidden;
+}
+
+.right-tab {
+  width: 800px;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  font-family: "Futura Book",Helvetica,Arial,sans-serif;
+}
+
+.panel {
+  width: 455px;
+  overflow: hidden
+}
+
+.bar-chart mie-lib-bar-chart .ng-star-inserted .chartjs-render-monitor{
+  width: 1050px !important;
+}
+
+.popup-head{
+  display: inline-flex;
+  width: auto;
+}
+
+.save_btn{
+  border: none;
+}
+
+.popup_icons{
+  margin-left: 810px;
+  // margin-left: 1010px;
+  display: inline-flex;
+}
+
+.ml_10{
+  margin-left: 10px;
+}
+
+.reply-btn{
+  color: green;
+  cursor: pointer;
+}
+.pos-header{
+  margin-left: 20px;
 }

@@ -52,7 +52,7 @@
 
 .horiz-bar {
   overflow: hidden;
-  // overflow-y: scroll;
+  overflow-y: scroll;
   height: 200px;
 }
 
@@ -65,4 +65,10 @@ mat-card-title {
   margin-bottom: 0;
   padding-top: 0;
   // margin-top: 0;
+}
+
+.save_btn{
+  margin-left: 518px;
+  margin-top: -53px;
+  position: absolute;
 }

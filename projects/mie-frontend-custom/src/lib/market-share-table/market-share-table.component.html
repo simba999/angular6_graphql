@@ -1,7 +1,20 @@
 <div id="table-scroll" class="table-scroll">
-  <mat-icon class="ml_10 down_pdf" (click)="download()">save_alt</mat-icon>
-  <mat-icon class="ml_10 pop" (click)="openPopup('marketTable')">home</mat-icon>
-  <!-- <mat-icon class="ml_10" (click)="download()">save_alt</mat-icon> -->
+  <!-- <mat-icon class="ml_10 down_pdf" (click)="download()">save_alt</mat-icon> -->
+  
+  <button mat-icon-button class="ml_10 down_pdf" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+    <mat-icon>save_alt</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="downloadPNG()">
+      <mat-icon>image</mat-icon>
+      PNG
+    </button>
+    <button mat-menu-item (click)="download()">
+      <mat-icon>picture_as_pdf</mat-icon>
+      PDF
+    </button>
+  </mat-menu>
+
   <div class="rightTab" #leftTablePanel id="leftTablePanel">
     <table mat-table [dataSource]="dataSource" class="left-tab">
       <ng-container matColumnDef="name" sticky>
@@ -33,9 +46,8 @@
 
   <div class="marketShare">
     <span>Are we increasing our market share over time?</span>
-    <span class="goodPercent">GOOD (+3%)</span>
-    <a class="detailsSec" (click)="directToDetails()">View Details</a>
-    <mat-icon>chevron_right</mat-icon>
+    <!-- <a class="detailsSec" (click)="openPopup('marketTable')">View Details</a> -->
+    <!-- <mat-icon>chevron_right</mat-icon> -->
   </div>
 </div>
 

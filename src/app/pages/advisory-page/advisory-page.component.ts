@@ -5,10 +5,11 @@ import { ModalComponent } from 'projects/mie-frontend-custom/src/lib/modal/modal
 import * as jsPDF from 'jspdf';
 
 @Component({
-selector: 'mie-advisory-page',
-templateUrl: './advisory-page.component.html',
-styleUrls: ['./advisory-page.component.scss']
+  selector: 'mie-advisory-page',
+  templateUrl: './advisory-page.component.html',
+  styleUrls: ['./advisory-page.component.scss']
 })
+
 export class AdvisoryPageComponent {
 
   @ViewChild('content') content: ElementRef;
@@ -23,13 +24,16 @@ export class AdvisoryPageComponent {
   ];
 
   public barChartdata = {
-    chartOptions: [{
+    chartOptions: {
       scaleShowVerticalLines: false,
       scaleShowValues: true,
       responsive: true,
+      showScale: false,
       scales: {
         xAxes: [{
-          display: false
+          gridLines: {
+            display: false
+          }
         }],
         yAxes: [{
           categoryPercentage: 0.4,
@@ -64,13 +68,13 @@ export class AdvisoryPageComponent {
           });
         }
       }
-    }],
+    },
     chartLabels: ['CBRE', 'JLL', 'BNP Paribas', 'Colliers', 'Cushman & Wakefield',
       'Eastdil Secured', 'HFF', 'Knight frank', 'Marcus & Millichap', 'Savills', 'Other'],
     chartType: 'horizontalBar',
     chartData: [20.4, 7.4, 6.7, 0.8, 3.8, 6.2, 7.4, 3.6, 0.8, 8.9, 6.8],
     chartLegend: true,
-    chartColors: [{ backgroundColor: '#989898' }],
+    chartColors: [{ backgroundColor: '#006a4d' }],
   };
 
   constructor(public dialog: MatDialog) {
@@ -84,6 +88,17 @@ export class AdvisoryPageComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('dialog got closed');
     });
+  }
 
+  downloadChart() {
+    console.log('this is pdf');
+    console.log('this is pdffffffff');
+    const canvas = <HTMLCanvasElement>document.querySelector('#barChart');
+    const canvasImg = canvas.toDataURL('image/jpeg');
+    const doc = new jsPDF('portrait');
+    doc.setFontSize(30);
+    doc.text(15, 15, 'Bar Chart');
+    doc.addImage(canvasImg, 'JPEG', 10, 20, 185, 100);
+    doc.save('canvas.pdf');
   }
 }

@@ -64,9 +64,9 @@ export class MarketShareTableComponent implements OnInit {
     console.log(JSON.stringify(this.ELEMENT_DATA));
   }
 
-  directToDetails() {
-    this.router.navigate(['/details'], {queryParams: {tabData: this.ELEMENT_DATA}});
-  }
+  // directToDetails() {
+  //   this.router.navigate(['/details'], {queryParams: {tabData: this.ELEMENT_DATA}});
+  // }
 
   public onPreviousSearchPosition(): void {
     this.tablePanel.nativeElement.scrollLeft -= 100;
