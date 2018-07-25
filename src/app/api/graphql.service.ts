@@ -14,7 +14,7 @@ export class GraphQLService {
     private httpLink: HttpLink
   ) {
     apollo.create({
-      link: httpLink.create({ uri: '' }),
+      link: httpLink.create({ uri: 'https://glyph-devapi.herokuapp.com/ql' }),
       cache: new InMemoryCache(),
     });
   }

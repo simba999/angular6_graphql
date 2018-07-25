@@ -46,7 +46,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 
 // Third Party Modules
 import { NgUploaderModule } from 'ngx-uploader';
-import { ApolloModule, Apollo } from 'apollo-angular';
+import { ApolloModule, Apollo, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
@@ -63,6 +63,14 @@ import { HeaderPageComponent } from './pages/header-page/header-page.component';
 import { FooterPageComponent } from './pages/footer-page/footer-page.component';
 
 import { environment } from '../environments/environment';
+
+
+export function createApollo(httpLink: HttpLink) {
+  return {
+    link: httpLink.create({uri: 'https://glyph-devapi.herokuapp.com/ql'}),
+    cache: new InMemoryCache(),
+  };
+}
 
 
 @NgModule({
@@ -113,6 +121,9 @@ import { environment } from '../environments/environment';
     MatGridListModule
   ],
   providers: [
+    provide: APOLLO_OPTIONS,
+    useFactory: createApollo,
+    deps: [HttpLink]
   ],
   bootstrap: [AppComponent]
 })

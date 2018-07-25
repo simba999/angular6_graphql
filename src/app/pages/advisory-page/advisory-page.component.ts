@@ -2,7 +2,12 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AdvisoryService } from '../../api/advisory.service';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { ModalComponent } from 'projects/mie-frontend-custom/src/lib/modal/modal.component';
+import { Apollo } from 'apollo-angular';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import gql from 'graphql-tag';
 import * as jsPDF from 'jspdf';
+
 
 @Component({
   selector: 'mie-advisory-page',
@@ -77,7 +82,7 @@ export class AdvisoryPageComponent {
     chartColors: [{ backgroundColor: '#006a4d' }],
   };
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private apollo: Apollo) {
   }
 
   openPopup(type): void {
@@ -100,5 +105,26 @@ export class AdvisoryPageComponent {
     doc.text(15, 15, 'Bar Chart');
     doc.addImage(canvasImg, 'JPEG', 10, 20, 185, 100);
     doc.save('canvas.pdf');
+  }
+
+  getUsers() {
+    console.log('clicked: getUsers')
+    this.apollo.watchQuery<any>({
+      query: gql`
+        query allUsers {
+          posts {
+            _id
+            first_name
+            last_name
+            phone
+            phone_code
+          }
+        }
+      `,
+    })
+      .valueChanges
+      .pipe(
+        map(result => console.log(result))
+      );
   }
 }
