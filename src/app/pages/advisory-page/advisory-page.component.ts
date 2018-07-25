@@ -10,6 +10,10 @@ import { map } from 'rxjs/operators';
 import gql from 'graphql-tag';
 
 import { User, Query } from '../../api/types';
+import {
+  getUsersQuery,
+  createUserMutation
+} from '../../api/querys';
 
 @Component({
   selector: 'mie-advisory-page',
@@ -110,19 +114,11 @@ export class AdvisoryPageComponent {
     doc.save('canvas.pdf');
   }
 
+  // for query
   getUsers() {
     console.log('get getUsersrs')
 
-    this.users = this.apollo.watchQuery<Query>({
-      query: gql`
-        query {
-          allUsers {
-            _id
-            phone
-          }
-        }
-      `,
-    })
+    this.users = this.apollo.watchQuery<Query>(getUsersQuery)
       .valueChanges
       .pipe(
         map(result => {
@@ -130,7 +126,11 @@ export class AdvisoryPageComponent {
           return result.data.allUsers
         })
       );
+  }
 
-    console.log(this.users)
+  // for mutation
+  createUser() {
+    const createMutation = createUserMutation('+79062866099');
+    this.apollo.mutate(createMutation).subscribe();
   }
 }

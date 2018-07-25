@@ -1,3 +1,5 @@
+// Models
+
 export type User = {
   _id: string;
   phone: string;
