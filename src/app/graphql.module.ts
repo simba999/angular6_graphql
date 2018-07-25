@@ -6,7 +6,7 @@ import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 // GraphiQL: https://launchpad.graphql.com/1jzxrj179
-const uri = 'https://1jzxrj179.lp.gql.zone/graphql';
+const uri = 'https://glyph-devapi.herokuapp.com/ql';
 
 @NgModule({
   exports: [

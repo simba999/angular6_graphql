@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 
 import gql from 'graphql-tag';
 
-import { Post, Query } from './types';
+import { User, Query } from '../../api/types';
 
 @Component({
   selector: 'mie-advisory-page',
@@ -19,6 +19,7 @@ import { Post, Query } from './types';
 
 export class AdvisoryPageComponent {
 
+  users: Observable<User[]>;
   @ViewChild('content') content: ElementRef;
   public title = 'hello cards';
   cards = [
@@ -84,7 +85,7 @@ export class AdvisoryPageComponent {
     chartColors: [{ backgroundColor: '#006a4d' }],
   };
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private apollo: Apollo) {
   }
 
   openPopup(type): void {
@@ -111,13 +112,12 @@ export class AdvisoryPageComponent {
 
   getUsers() {
     console.log('get getUsersrs')
-    let posts = [];
 
-    posts = this.apollo.watchQuery<any>({
+    this.users = this.apollo.watchQuery<Query>({
       query: gql`
-        query allUsers {
-          posts {
-            id
+        query {
+          allUsers {
+            _id
             phone
           }
         }
@@ -125,9 +125,12 @@ export class AdvisoryPageComponent {
     })
       .valueChanges
       .pipe(
-        map(result => result.data.posts)
+        map(result => {
+          console.log('return value:', result)
+          return result.data.allUsers
+        })
       );
 
-    console.log(posts)
+    console.log(this.users)
   }
 }

@@ -40,8 +40,7 @@ import {
   DateAdapter,
   MAT_DATE_FORMATS,
   MatSelect,
-  MatGridListModule.
-  GraphQLModule
+  MatGridListModule
 } from '@angular/material';
 
 
@@ -113,7 +112,8 @@ import { environment } from '../environments/environment';
     AdvisoryRoutingModule,
     MieFrontendLibModule,
     MieFrontendCustomModule,
-    MatGridListModule
+    MatGridListModule,
+    GraphQLModule
   ],
   providers: [
   ],
