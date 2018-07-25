@@ -12,6 +12,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 // import library modules with in project
 import { MieFrontendLibModule } from 'projects/mie-frontend-lib/src/lib/mie-frontend-lib.module';
 import { MieFrontendCustomModule } from 'projects/mie-frontend-custom/src/lib/mie-frontend-custom.module';
+import { GraphQLModule } from './graphql.module';
+
 // Material Modules
 import {
   MatFormFieldModule,
@@ -38,7 +40,8 @@ import {
   DateAdapter,
   MAT_DATE_FORMATS,
   MatSelect,
-  MatGridListModule
+  MatGridListModule.
+  GraphQLModule
 } from '@angular/material';
 
 

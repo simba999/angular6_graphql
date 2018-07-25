@@ -3,6 +3,13 @@ import { AdvisoryService } from '../../api/advisory.service';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { ModalComponent } from 'projects/mie-frontend-custom/src/lib/modal/modal.component';
 import * as jsPDF from 'jspdf';
+import { Apollo } from 'apollo-angular';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import gql from 'graphql-tag';
+
+import { Post, Query } from './types';
 
 @Component({
   selector: 'mie-advisory-page',
@@ -100,5 +107,27 @@ export class AdvisoryPageComponent {
     doc.text(15, 15, 'Bar Chart');
     doc.addImage(canvasImg, 'JPEG', 10, 20, 185, 100);
     doc.save('canvas.pdf');
+  }
+
+  getUsers() {
+    console.log('get getUsersrs')
+    let posts = [];
+
+    posts = this.apollo.watchQuery<any>({
+      query: gql`
+        query allUsers {
+          posts {
+            id
+            phone
+          }
+        }
+      `,
+    })
+      .valueChanges
+      .pipe(
+        map(result => result.data.posts)
+      );
+
+    console.log(posts)
   }
 }
